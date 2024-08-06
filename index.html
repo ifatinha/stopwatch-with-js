@@ -10,6 +10,7 @@
    <meta name="robots" content="index, follow">
 
    <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/carousel.css">
    <title>Stopwatch</title>
 </head>
 
@@ -22,26 +23,47 @@
 
          <div class="container-time">
             <div class="time-card">
-               <span class="simple-amount" id="days">266</span>
+               <span class="simple-amount" id="days">00</span>
                <span class="simple-word">Dias</span>
             </div>
             <div class="time-card">
-               <span class="simple-amount" id="hours">06</span>
+               <span class="simple-amount" id="hours">00</span>
                <span class="simple-word">Horas</span>
             </div>
             <div class="time-card">
-               <span class="simple-amount" id="minutes">27</span>
+               <span class="simple-amount" id="minutes">00</span>
                <span class="simple-word">Minutos</span>
             </div>
             <div class="time-card">
-               <span class="simple-amount" id="seconds">59</span>
+               <span class="simple-amount" id="seconds">00</span>
                <span class="simple-word">Segundos</span>
             </div>
          </div>
       </div>
    </div>
 
-   <script src="js/script.js"></script>
+   <div class="carousel" id="carousel">
+      <div class="carousel-inner" id="carousel-inner">
+         <div class="carousel-item active">
+            <img src="images/slide-01.jpg" alt="Slide Item">
+            <div class="overlay"></div>
+         </div>
+         <div class="carousel-item">
+            <img src="images/slide-02.jpg" alt="Slide Item">
+            <div class="overlay"></div>
+         </div>
+         <div class="carousel-item">
+            <img src="images/slide-03.jpg" alt="Slide Item">
+            <div class="overlay"></div>
+         </div>
+         <div class="carousel-item">
+            <img src="images/slide-04.jpg" alt="Slide Item">
+            <div class="overlay"></div>
+         </div>
+      </div>
+   </div>
+
+   <script src="js/stopwatch.js"></script>
 </body>
 
 </html>

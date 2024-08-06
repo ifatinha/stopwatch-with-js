@@ -19,6 +19,7 @@ body {
    font-size  : 16px;
    font-weight: 400;
    line-height: 1.7;
+   overflow   : hidden;
 }
 
 .work-sans-heading {
@@ -38,7 +39,7 @@ body {
 .container {
    align-items: center;
    background : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("../images/slide-01.jpg");
+      url("../images/main-bg.jpg");
    background-position: center;
    background-repeat  : no-repeat;
    background-size    : cover;
@@ -48,6 +49,7 @@ body {
    position           : relative;
    padding            : 2%;
    width              : 100%;
+   z-index            : 1;
 }
 
 .main {
