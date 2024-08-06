@@ -3,21 +3,53 @@ window.addEventListener("DOMContentLoaded", () => {
     let hours = document.querySelector("#hours")
     let minutes = document.querySelector("#minutes")
     let seconds = document.querySelector("#seconds")
-    let currentSecond = 0;
-    let currentMinutes = 0;
-    let currentHours = 0;
-    let currentDays = 0;
 
+
+    // Função para formatar o tempo
     function format(unit) {
         return unit < 10 ? `0${unit}` : unit
     }
 
+    // Função para atualizar o display
     function updateDisplay() {
         seconds.innerHTML = format(currentSecond);
-        minutes.innerHTML = format(currentMinutes);
-        hours.innerHTML = format(currentHours);
-        days.innerHTML = format(currentHours)
+        minutes.innerHTML = format(currentMinute);
+        hours.innerHTML = format(currentHour);
+        days.innerHTML = format(currentHour)
     }
+
+    // Função para salvar o tempo no localstorage
+    function saveTime() {
+        const timeToSave = {
+            second: currentSecond,
+            minute: currentMinute,
+            hour: currentHour,
+            day: currentDay
+        };
+
+        localStorage.setItem("time", JSON.stringify(timeToSave));
+    }
+
+    // Função para carregar o tempo do localstorage
+    function loadTime() {
+        const saveTime = JSON.parse(localStorage.getItem("time"));
+        console.log(saveTime);
+        if (saveTime) {
+            currentSecond = saveTime.second;
+            currentMinute = saveTime.minute;
+            currentHour = saveTime.hour;
+            currentDay = saveTime.day
+        }
+    }
+
+    // Inicializa o tempo
+    let currentSecond = 0;
+    let currentMinute = 0;
+    let currentHour = 0;
+    let currentDay = 0;
+
+    loadTime();
+    updateDisplay();
 
     setInterval(() => {
 
@@ -25,17 +57,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (currentSecond >= 60) {
             currentSecond = 0
-            currentMinutes++
-            if (currentMinutes >= 60) {
-                currentMinutes = 0
-                currentHours++
-                if (currentHours >= 24) {
-                    currentHours = 0
-                    currentDays++
+            currentMinute++
+            if (currentMinute >= 60) {
+                currentMinute = 0
+                currentHour++
+                if (currentHour >= 24) {
+                    currentHour = 0
+                    currentDay++
                 }
             }
         }
 
         updateDisplay()
+        saveTime()
     }, 1000)
 })
