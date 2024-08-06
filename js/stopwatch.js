@@ -18,6 +18,9 @@ window.addEventListener("DOMContentLoaded", () => {
         days.innerHTML = format(currentHour)
     }
 
+    // Função para salvar o tempo inicial no localstorage
+    
+
     // Função para salvar o tempo no localstorage
     function saveTime() {
         const timeToSave = {
